@@ -8,11 +8,12 @@ import Login from "./pages/Login";
 import MyAppointment from "./pages/MyAppointment";
 const App = () => {
   return (
-    <div className="mx-4 sm:mx-[10%]">
+    <div className="mx-4 sm:mx-[7%]">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} index />
         <Route path="/about" element={<About />} />
         <Route path="/doctors" element={<Doctors />} />
+        <Route path="/doctors/:specialty" element={<Doctors />} />
         <Route path="/my-profile" element={<MyProfile />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
