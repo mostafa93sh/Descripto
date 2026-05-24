@@ -1,8 +1,8 @@
-export { Home } from "./Home";
-export { About } from "./About";
-export { Doctors } from "./Doctors";
-export { MyProfile } from "./MyProfile";
-export { Contact } from "./Contact";
-export { Login } from "./Login";
-export { MyAppointment } from "./MyAppointment";
-export { Appointments } from "./Appointments";
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as Doctors } from "./Doctors";
+export { default as MyProfile } from "./MyProfile";
+export { default as Contact } from "./Contact";
+export { default as Login } from "./Login";
+export { default as MyAppointment } from "./MyAppointment";
+export { default as Appointments } from "./Appointments";
