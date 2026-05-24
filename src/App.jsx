@@ -1,16 +1,19 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Doctors from "./pages/Doctors";
-import MyProfile from "./pages/MyProfile";
-import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import MyAppointment from "./pages/MyAppointment";
+import {
+  Home,
+  About,
+  Doctors,
+  MyProfile,
+  Contact,
+  Login,
+  MyAppointment,
+  Appointments,
+} from "./pages";
 const App = () => {
   return (
     <div className="mx-4 sm:mx-[7%]">
       <Routes>
-        <Route path="/" element={<Home />} index />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctors/:specialty" element={<Doctors />} />
@@ -18,6 +21,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/my-appointment" element={<MyAppointment />} />
+        <Route path="/appointment/doctorId" element={<Appointments />} />
       </Routes>
     </div>
   );
