@@ -1,8 +1,14 @@
 import { assets } from "../assets/assets";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
+import { useState } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [token, setToken] = useState(localStorage.getItem("token") || true);
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
       <img src={assets.logo} alt="Logo" />
@@ -69,9 +75,38 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="hidden md:block">
-        <button className="text-lg text-white bg-[#5f6fff] px-4 py-2 cursor-pointer font-light rounded-full">
-          Create Account
-        </button>
+        {token ? (
+          <div className="flex items-center gap-2 relative group">
+            <FaRegUserCircle
+              size={24}
+              className="cursor-pointer"
+              onClick={() => navigate("/my-profile")}
+            />
+            <IoMdArrowDropdown size={18} className="cursor-pointer" />
+            <div
+              className={`absolute top-0 right-0  shadow-lg rounded-md mt-2 hidden group-hover:block `}
+            >
+              <div className="min-w-48 flex flex-col gap-2 p-4 bg-stone-100 rounded text-sm text-gray-700">
+                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                  My Profile
+                </p>
+                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                  My Appointments
+                </p>
+                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                  Logout
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => navigate("/login")}
+            className="text-lg text-white bg-[#5f6fff] px-4 py-2 cursor-pointer font-light rounded-full"
+          >
+            Create Account
+          </button>
+        )}
       </div>
       <div className="block md:hidden">
         <LuMenu size={24} />
