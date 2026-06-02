@@ -11,7 +11,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <div className="flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400">
-      <img src={assets.logo} alt="Logo" />
+      <img className="w-44" src={assets.logo} alt="Logo" />
       <div className="hidden md:block">
         <ul className="flex items-center gap-6 transition-all duration-300">
           <NavLink to="/">
@@ -84,16 +84,16 @@ const Navbar = () => {
             />
             <IoMdArrowDropdown size={18} className="cursor-pointer" />
             <div
-              className={`absolute top-0 right-0  shadow-lg rounded-md mt-2 hidden group-hover:block `}
+              className={`absolute top-10 right-0  shadow-lg rounded-md mt-2 hidden group-hover:block `}
             >
               <div className="min-w-48 flex flex-col gap-2 p-4 bg-stone-100 rounded text-sm text-gray-700">
-                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                <p onClick={() => navigate("/my-profile")} className="cursor-pointer hover:bg-gray-200 p-2 rounded">
                   My Profile
                 </p>
-                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                <p onClick={() => navigate("/my-appointments")} className="cursor-pointer hover:bg-gray-200 p-2 rounded">
                   My Appointments
                 </p>
-                <p className="cursor-pointer hover:bg-gray-200 p-2 rounded">
+                <p onClick={() => setToken(null)} className="cursor-pointer hover:bg-gray-200 p-2 rounded">
                   Logout
                 </p>
               </div>
