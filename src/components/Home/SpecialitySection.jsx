@@ -3,8 +3,8 @@ import { specialityData } from "../../assets/assets";
 
 const SpecialitySection = () => {
   return (
-    <div className="flex flex-col gap-8 items-center py-10">
-      <h2 className="text-3xl xl:text-5xl leading-tight">Find by Speciality</h2>
+    <div className="flex flex-col gap-8 items-center py-20">
+      <p className="text-3xl xl:text-5xl leading-tight">Find by Speciality</p>
       <p className="text-sm text-gray-600 text-center max-w-1/3">
         Simply browse through our extensive list of trusted doctors, schedule
         your appointment hassle-free.
