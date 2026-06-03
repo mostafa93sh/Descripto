@@ -5,12 +5,8 @@ import PrimaryButton from "../PrimaryButton";
 import DoctorsGrid from "../DoctorsGrid";
 
 const TopDoctors = () => {
-  const navigate = useNavigate();
   const { doctors } = useContext(AppContext);
-
-  const handleDoctorClick = (doctor) => {
-    navigate(`/appointment/${doctor._id}`);
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="py-20 flex flex-col gap-5 items-center">
@@ -23,7 +19,6 @@ const TopDoctors = () => {
       </p>
       <DoctorsGrid
         doctors={doctors.slice(0, 8)}
-        onDoctorClick={handleDoctorClick}
         footer={
           <PrimaryButton
             onClick={() => {
