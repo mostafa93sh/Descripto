@@ -10,9 +10,10 @@ import {
   Appointments,
 } from "./pages";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const App = () => {
   return (
-    <div className="mx-4 sm:mx-[7%]">
+    <div className=" mx-4 sm:mx-[7%]">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/my-appointment" element={<MyAppointment />} />
         <Route path="/appointment/:doctorId" element={<Appointments />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
