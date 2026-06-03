@@ -1,6 +1,11 @@
-import { doctors } from "../../assets/assets";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
+import PrimaryButton from "../PrimaryButton";
 
 const TopDoctors = () => {
+  const navigate = useNavigate();
+  const { doctors } = useContext(AppContext);
   return (
     <div className="py-20 flex flex-col gap-5 items-center">
       <p className="text-3xl md:text-4xl font-medium leading-tight ">
@@ -14,8 +19,9 @@ const TopDoctors = () => {
         {doctors
           .map((doctor) => (
             <div
-              key={doctor.id}
-              className=" border rounded-lg border-[#C9D8FF] w-[274px] h-[385px]"
+              onClick={() => navigate(`/appointment/${doctor._id}`)}
+              key={doctor._id}
+              className=" border rounded-lg border-[#C9D8FF] w-[274px] h-[385px] hover:-translate-y-2.5 transition-all duration-300 cursor-pointer"
             >
               <div className="w-full h-2/3 relative bg-[#EAEFFF] rounded-lg ">
                 <img
@@ -40,9 +46,15 @@ const TopDoctors = () => {
           ))
           .slice(0, 8)}
         <div className="col-span-full flex justify-center mt-10">
-          <button className="cursor-pointer px-8 py-4 bg-[#EAEFFF] text-xl text-[#4B5563] rounded-[47px] font-medium flex justify-center items-center gap-2 w-[240px] max-md:mx-auto">
+          <PrimaryButton
+            onClick={() => {
+              navigate("/doctors");
+              scrollTo(0, 0);
+            }}
+            className="w-[240px] max-md:mx-auto"
+          >
             more
-          </button>
+          </PrimaryButton>
         </div>
       </div>
     </div>
